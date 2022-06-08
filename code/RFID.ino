@@ -1,9 +1,9 @@
 
 #include <SPI.h> 
-#include <RFID.h>
+#include <MFRC522.h>  
 #include <Servo.h> 
 
-RFID rfid(10, 9);       //D10:pin of tag reader SDA. D9:pin of tag reader RST wider
+RFID rfid(11, 6);       //D10:pin of tag reader SDA. D9:pin of tag reader RST wider
 unsigned char status; 
 unsigned char str[MAX_LEN]; //MAX_LEN is 16: size of the array 
 
@@ -15,15 +15,16 @@ int lockPos = 15;               //Locked position limit
 int unlockPos = 75;             //Unlocked position limit
 boolean locked = true;
 
-int redLEDPin = 7;
-int greenLEDPin = 5;
-int blueLEDPin = 6;
+int redLEDPin = 3;
+int greenLEDPin = 4;
+int blueLEDPin = 5;
 
 void setup() 
 { 
   Serial.begin(9600);     //Serial monitor is only required to get tag ID numbers and for troubleshooting
+  lockServo.attach(2);
   SPI.begin();            //Start SPI communication with reader
-  rfid.init();            //initialization 
+  mfrc522.PCD_Init();  // Initialisiere MFRC522 Lesemodul
   pinMode(redLEDPin, OUTPUT);     //LED startup sequence
   pinMode(greenLEDPin, OUTPUT);
   digitalWrite(redLEDPin, HIGH);
@@ -38,24 +39,17 @@ void setup()
 
 void loop() 
 { 
-  if (rfid.findCard(PICC_REQIDL, str) == MI_OK)   //Wait for a tag to be placed near the reader
-  { 
-    Serial.println("Card found"); 
-    String temp = "";                             //Temporary variable to store the read RFID number
-    if (rfid.anticoll(str) == MI_OK)              //Anti-collision detection, read tag serial number 
-    { 
-      Serial.print("The card's ID number is : "); 
-      for (int i = 0; i < 4; i++)                 //Record and display the tag serial number 
-      { 
-        temp = temp + (0x0F & (str[i] >> 4)); 
-        temp = temp + (0x0F & str[i]); 
-      } 
-      Serial.println (temp);
-      checkAccess (temp);     //Check if the identified tag is an allowed to open tag
+  if (mfrc522.PICC_IsNewCardPresent() && mfrc522.PICC_ReadCardSerial() ) { 
+    Serial.print("Card Found:");
+    for (byte i = 0; i < mfrc522.uid.size; i++) {
+      Serial.print(mfrc522.uid.uidByte[i] < 0x10 ? " 0" : " ");
+      Serial.print(mfrc522.uid.uidByte[i], HEX);
     } 
-    rfid.selectTag(str); //Lock card to prevent a redundant read, removing the line will make the sketch read cards continually
-  }
-  rfid.halt();
+    Serial.println(); 
+    checkAccess (temp);     //Check if the identified tag is an allowed to open tag
+    } 
+    mfrc522.PICC_HaltA(); //Lock card to prevent a redundant read, removing the line will make the sketch read cards continually
+    delay(1000);
 }
 
 void checkAccess (String temp)    //Function to check if an identified tag is registered to allow access

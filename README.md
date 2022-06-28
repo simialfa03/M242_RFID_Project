@@ -23,12 +23,26 @@ Arduino is a open-source platform used for building electronics, mostly for educ
 
 | RFID RC-522  PIN |  Arduino MKR1010 PIN |  Description |
 | ------------- |:-------------:| -----:|
-|  3.3V         | VCC           | operating voltage 3.3 V| 
+| 3.3V         | VCC            | operating voltage 3.3 V| 
 | RST           | 6             |   Digital Port 6       |
 | GND           | GND           |    Ground              |
 | MISO          | 10            |    Digital Port 10     |
 | MOSI          | 8             |    Digital Port 8      |
 | SCK           | 9             |    Digital Port 9      |
 | SCA           | 11            |    Digital Port 11     |
+
+| RGB LED       |  Arduino MKR1010 PIN |  Description |
+| ------------- |:-------------:| -----:|
+| RED           | 3             |   RED LED              | 
+| Green         | 4             |   Green LED            |
+| Blue          | 5             |   Blue LED             |
+| GND           | GND           |   Ground               | 
+
+| Servo         |  Arduino MKR1010 PIN |  Description |
+| ------------- |:-------------:| -----:|
+| 5V | RED      | 5V            | operating voltage 5 V| 
+| GND| Black    | GND           |   Ground             |
+| Orange        | 2             | Digital Port 2       |  
+
 
 ## Lock mechanism

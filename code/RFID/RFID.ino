@@ -10,7 +10,7 @@ MFRC522 mfrc522(SS_PIN, RST_PIN); // Instanz des MFRC522 erzeugen
 
 unsigned char status;
 
-String accessGranted[2] = {"7bf9371b", "19612012715"}; // RFID UID numbers to grant access to
+String accessGranted[2] = {"7b f9 37 1b", "04 47 06 fa 9f 59 80"}; // RFID UID numbers to grant access to
 int accessGrantedSize = 2;                             // The number of UID numbers
 
 Servo lockServo;    // Servo for locking mechanism
@@ -66,7 +66,7 @@ void checkAccess(String temp) // Function to check if an identified tag is regis
   boolean granted = false;
   for (int i = 0; i <= (accessGrantedSize - 1); i++) // Runs through all tag ID numbers registered in the array
   {
-    if (accessGranted[i] == temp) // If a tag is found then open/close the lock
+    if (accessGranted[i] == temp.substring(1)) // If a tag is found then open/close the lock
     {
       Serial.println("Access Granted");
       granted = true;

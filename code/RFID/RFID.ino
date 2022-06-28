@@ -18,7 +18,7 @@ int lockPos = 15;   // Locked position limit
 int unlockPos = 75; // Unlocked position limit
 boolean locked = true;
 
-int redLEDPin = 3;
+int redLEDPin = 3; // LED Pins
 int greenLEDPin = 4;
 int blueLEDPin = 5;
 

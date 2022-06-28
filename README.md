@@ -4,8 +4,14 @@ The Arduino is able to scan RFID cards in order to unlock a 3D printed doorlock.
 Feel free to use the code for your projects. 
 
 ## Requirements
-
-
+- [Arduino arduino mkr 1010]()
+- [RFID Reader & Badge]()
+- [Servo]()
+- [RGB LED]()
+- Cables & Resistor
+<br>Optional:</br>
+- [3D Printer]()
+- []() 
 
 # RFID
 RFID id stands for "radio-frequency identification” and refers to a technology where digital data encoded in RFID tags or smart labels are captured by a reader via radio waves. An advantages of RFID is that the RFID tag data can be read outside the line-of-sight, whereas barcodes must be aligned with an optical scanner. 
@@ -17,9 +23,10 @@ Before we start the project, we have to know what Arduino actually is.
 Arduino is a open-source platform used for building electronics, mostly for educational purpose. Arduino consists of both a physical programmable circuit board and a piece of software, or IDE that runs on your computer, used to write and upload code to the arduino board. 
 
 ## Our Arduino RFID project 
+Our Arduino RFID Doorlock Project is based on [MICHAEL KLEMENTS RFID Doorlock Tutorial](https://www.the-diy-life.com/arduino-based-rfid-door-lock-make-your-own/). We changed it a little bit and created a slightly different code. 
 
+### Circuit Tables
 
-### Circuit
 
 | RFID RC-522  PIN |  Arduino MKR1010 PIN |  Description |
 | ------------- |:-------------:| -----:|
@@ -46,3 +53,10 @@ Arduino is a open-source platform used for building electronics, mostly for educ
 
 
 ## Lock mechanism
+The lock mechanism is based on this [sliding lock design](https://www.thingiverse.com/thing:1596180) by Sagittario which was scaled down to 65% of the original size.
+
+Download 3D Print Files: [3D Printfiles](/printfiles/3D-Print-Files.zip)
+
+If you don't have a 3D Printer, you can use any standard bolt type sliding lock. 
+
+## Code 

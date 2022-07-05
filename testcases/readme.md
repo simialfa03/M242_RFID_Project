@@ -1,4 +1,7 @@
 # Testcases
+We have made some Testcases based on our smart objectives in order to test every component of our project.
+The numbers of the Testcases inidcates the number of the smart objective. 
+
 ##  Testcase #1 
 
 <b>Tester:</b> simialfa03 <br>

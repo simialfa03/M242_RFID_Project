@@ -4,14 +4,34 @@ The Arduino is able to scan RFID cards in order to unlock a 3D printed doorlock.
 Feel free to use the code for your projects. 
 
 ## Requirements
-- [Arduino arduino mkr 1010]()
-- [RFID Reader & Badge]()
-- [Servo]()
-- [RGB LED]()
+- [Arduino arduino mkr 1010](https://www.amazon.com/-/de/dp/B07FYFF5YZ/ref=sr_1_1?keywords=arduino+mkr+wifi+1010&qid=1656406329&sprefix=arduino+mkr%2Caps%2C153&sr=8-1)
+- [RFID Reader & Badge](https://www.amazon.com/-/de/dp/B01CSTW0IA/ref=sr_1_2?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=1YQEUCWFZ2IZD&keywords=arduino+rfid&qid=1656406347&sprefix=arduino+rfi%2Caps%2C146&sr=8-2)
+- [Servo](https://www.amazon.com/gp/product/B07MLR1498/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B07MLR1498&linkCode=as2&tag=mklements-20&linkId=63a97680f3787d087be345410cd59158)
+- [RGB LED](https://www.amazon.com/-/de/dp/B077XGF3YR/ref=sr_1_1?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=2CYUPMETPM8GS&keywords=RGB%2Bled%2Barduino&qid=1656406421&sprefix=rgb%2Bled%2Barduino%2Caps%2C131&sr=8-1&th=1)
 - Cables & Resistor
-<br>Optional:</br>
-- [3D Printer]()
-- []() 
+
+<b>Optional:</r>
+
+- [3D Printer](https://www.amazon.com/-/de/dp/B094F65V3F/ref=sr_1_4?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=7Z6BSY639093&keywords=3d+printers+ender+3&qid=1656406451&sprefix=3d+printers+ender+%2Caps%2C196&sr=8-4)
+
+- [Breadboard](https://www.amazon.com/-/de/dp/B073X7GZ1P/ref=sr_1_1?crid=2CL3V57MRGASD&keywords=arduino+breadboard&qid=1656406466&sprefix=arduino+bre%2Caps%2C157&sr=8-1) 
+Organigramm_RFID.drawio
+## SMART objectives 
+- The Arduino can read UIDs of a RFID card
+- The RGB led glows green when access granted
+- The RGB led glows red when access not granted
+- We can put the RFID Card UIDs in a array
+- We can assign the UIDs to a person
+- The servo opens door if access granted
+- The servo closes door if access not granted
+- The RGD led and the servo are going through startup sequence on startup
+- Any access attempt is protocoled in the serial monitor, also the result
+- Servo is attached to lock mechanism
+
+<b> Non Functional objectives: </b>
+- Endresult is not attached to real door, because its only a demonstration
+- Endresult is not constructed and purposed to be deployed for security reasons, its only a functional demonstration
+
 
 # RFID
 RFID id stands for "radio-frequency identification” and refers to a technology where digital data encoded in RFID tags or smart labels are captured by a reader via radio waves. An advantages of RFID is that the RFID tag data can be read outside the line-of-sight, whereas barcodes must be aligned with an optical scanner. 
@@ -59,4 +79,11 @@ Download 3D Print Files: [3D Printfiles](/printfiles/3D-Print-Files.zip)
 
 If you don't have a 3D Printer, you can use any standard bolt type sliding lock. 
 
-## Code 
+## Code flowchart
+
+![Organigram](/image/Organigramm_RFID.png "Organigram")
+
+## Testcases 
+
+## Project reflection
+

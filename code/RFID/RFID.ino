@@ -16,18 +16,18 @@ int accessGrantedSize = 2;                             // The number of UID numb
 Servo lockServo;    // Servo for locking mechanism
 int lockPos = 15;   // Locked position limit
 int unlockPos = 75; // Unlocked position limit
-boolean locked = true;
+boolean locked = true; // sets locked to true
 
-int redLEDPin = 3; // LED Pins
+int redLEDPin = 3;  // LED Pins
 int greenLEDPin = 4;
 int blueLEDPin = 5;
-
+ 
 void setup()
 {
   Serial.begin(9600); // Serial monitor is only required to get tag ID numbers and for troubleshooting
   lockServo.attach(2);        // attaches Servo to PIN 2
   SPI.begin();                // Start SPI communication with reader
-  mfrc522.PCD_Init();         // Initialisiere MFRC522 Lesemodul
+  mfrc522.PCD_Init();         // Initialize MFRC522 read module
   pinMode(redLEDPin, OUTPUT); // LED startup sequence
   pinMode(greenLEDPin, OUTPUT);
   digitalWrite(redLEDPin, HIGH);
@@ -54,30 +54,33 @@ void loop()
       temp.concat(String(mfrc522.uid.uidByte[i], HEX));
     }
     Serial.println();
-    checkAccess(temp); // Check if the identified tag is an allowed to open tag
+    checkAccess(temp);  // Check if the identified tag is an allowed to open tag
   }
   mfrc522.PICC_HaltA(); // Lock card to prevent a redundant read, removing the line will make the sketch read cards continually
-  delay(1000); // waits 1000 ms
+  delay(1000);          // waits 1000 ms
 }
 
 void checkAccess(String temp) // Function to check if an identified tag is registered to allow access
 {
-  boolean granted = false; // sets granted boolean to false
+  boolean granted = false; // sets granted boolean to false 
   for (int i = 0; i <= (accessGrantedSize - 1); i++) // Runs through all tag ID numbers registered in the array
   {
     if (accessGranted[i] == temp.substring(1)) // If a tag is found then open/close the lock
     {
-      Serial.println("Access Granted");
-      granted = true;
+      Serial.println("Access Granted: ");
+      granted = true;     // sets granted to true
       if (locked == true) // If the lock is closed then open it
       {
-        lockServo.write(unlockPos);
-        locked = false;
+        lockServo.write(unlockPos); // opens servo
+        locked = false; // fills locked to false = opens door
       }
       else if (locked == false) // If the lock is open then close it
       {
-        lockServo.write(lockPos);
-        locked = true;
+        lockServo.write(lockPos); // closes Servo
+        locked = true; // fills locked to true = close door
+      }
+      if (temp.substring(1) == "7b f9 37 1b"){      // If my UID is scanned, it will Identify me
+        Serial.println("Identified as: Simi");      
       }
       digitalWrite(greenLEDPin, HIGH); // Green LED sequence
       delay(200);

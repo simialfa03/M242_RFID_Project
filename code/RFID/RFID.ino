@@ -95,6 +95,11 @@ void checkAccess(String temp) // Function to check if an identified tag is regis
   if (granted == false) // If the tag is not found
   {
     Serial.println("Access Denied");
+    if (locked == false) // If the lock is open then close it
+      {
+        lockServo.write(lockPos); // closes Servo
+        locked = true; // fills locked to true = close door
+      }
     digitalWrite(redLEDPin, HIGH); // Red LED sequence
     delay(200);
     digitalWrite(redLEDPin, LOW);

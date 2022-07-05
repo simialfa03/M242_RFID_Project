@@ -18,16 +18,14 @@ Feel free to use the code for your projects.
 Organigramm_RFID.drawio
 
 ## SMART objectives 
-- The Arduino can read UIDs of a RFID card
-- The RGB led glows green when access granted
-- The RGB led glows red when access not granted
-- We can put the RFID Card UIDs in a array
-- We can assign the UIDs to a person
-- The servo opens door if access granted
-- The servo closes door if access not granted
-- The RGD led and the servo are going through startup sequence on startup
-- Any access attempt is protocoled in the serial monitor, also the result
-- Servo is attached to lock mechanism
+1. The RGD led and the servo are going through startup sequence on startup
+2. The Arduino can read UIDs of a RFID card
+3. We can put the RFID Card UID in a string to for the check function
+4. We can put the RFID Card UIDs in a array, in order to store them
+5. We can assign the UIDs to a person
+6. The servo opens door if access granted and LED blinks green
+7. The servo closes door if access not granted  and LED blinks red
+8. Any access attempt is protocoled in the serial monitor
 
 <b> Non Functional objectives: </b>
 - Endresult is not attached to real door, because its only a demonstration
@@ -87,109 +85,8 @@ If you don't have a 3D Printer, you can use any standard bolt type sliding lock.
 ![Organigram](/image/Organigramm_RFID.png "Organigram")
 
 ## Testcases 
-### Testcase #1 
-<b>Description:</b> 
-Testing LED Sequence and Cabling on Startup
-
-``` c++ 
-int redLEDPin = 3;   
-int greenLEDPin = 4;  
-int blueLEDPin = 5;   
-void setup(){  
-    pinMode(redLEDPin, OUTPUT);  
-    pinMode(greenLEDPin, OUTPUT);  
-    digitalWrite(redLEDPin, HIGH);   
-    delay(200);   
-    digitalWrite(greenLEDPin, HIGH);   
-    delay(200);   
-    digitalWrite(redLEDPin, LOW);   
-    delay(200);   
-    digitalWrite(greenLEDPin, LOW);  
-    }
-``` 
-<b>Result: <span style="color:green">Successful</span></b><br>
-
-### Testcase #2 
-<b>Description:</b> 
-Testing if mfrc522 can read out UID of RFID card and prints it out to serial monitor. 
-
-``` c++ 
-void loop(){
-  if (mfrc522.PICC_IsNewCardPresent() && mfrc522.PICC_ReadCardSerial())<>
-  {
-    String temp = "";
-    for (byte i = 0; i < mfrc522.uid.size; i++) 
-    {
-      Serial.print(mfrc522.uid.uidByte[i] < 0x10 ? " 0" : " "); 
-      Serial.print(mfrc522.uid.uidByte[i], HEX);
-       } 
-  }
-  mfrc522.PICC_HaltA(); 
-  delay(1000);          
-}
-
-``` 
-<b>Result: <span style="color:green">Successful</span></b><br>
-
-### Testcase #3
-<b>Description:</b> 
-Testing if concat works: 
-
-``` c++ 
-void loop(){
-  if (mfrc522.PICC_IsNewCardPresent() && mfrc522.PICC_ReadCardSerial())<>
-  {
-
-    String temp = "";
-    for (byte i = 0; i < mfrc522.uid.size; i++) 
-    {
-      temp.concat(String(mfrc522.uid.uidByte[i] < 0x10 ? " 0" : " "));
-      temp.concat(String(mfrc522.uid.uidByte[i], HEX));
-       } 
-  }
-  Serial.println(temp);
-  mfrc522.PICC_HaltA(); 
-  delay(1000);          
-}
-``` 
-<b>Result: <span style="color:green">Successful</span></b><br>
-
-### Testcase #4
-<b>Description:</b> 
-Testing if checkAccess function works: 
-
-``` c++ 
-void checkAccess(String temp)
-{
-  boolean granted = false; 
-  for (int i = 0; i <= (accessGrantedSize - 1); i++) 
-  {
-    if (accessGranted[i] == temp.substring(1))
-    {
-      Serial.println("Access Granted: ");
-      granted = true;    
-      if (locked == true) 
-      {
-        lockServo.write(unlockPos); 
-        locked = false; 
-      }
-      else if (locked == false)
-      {
-        lockServo.write(lockPos); 
-        locked = true; 
-      }
-      // LED Sequence
-    }
-  }
-  if (granted == false) 
-  {
-    Serial.println("Access Denied");
-    // LED Sequence
-  }
-}
-``` 
-<b>Result: <span style="color:green">Successful</span></b><br>
-
+We have made some Testcases based on our smart objectives in order to test every component of our project. 
+You can find the testcases here: [Testcases](/testcases/readme.md)
 
 ## Project reflection
 The project was pretty fun and we have learned a lot of new things about the arduino and how microcontroller and microprocessor works. 

@@ -54,7 +54,7 @@ void loop()
       temp.concat(String(mfrc522.uid.uidByte[i], HEX));
     }
     Serial.println();
-    checkAccess(temp);  // Check if the identified tag is an allowed to open tag
+    checkAccess(temp);  // Check if the identified tag is an allowed to open tag in checkAccess Function
   }
   mfrc522.PICC_HaltA(); // Lock card to prevent a redundant read, removing the line will make the sketch read cards continually
   delay(1000);          // waits 1000 ms

@@ -87,10 +87,109 @@ If you don't have a 3D Printer, you can use any standard bolt type sliding lock.
 ![Organigram](/image/Organigramm_RFID.png "Organigram")
 
 ## Testcases 
-| Testcase      | Description   |   Result             |
-| ------------- |:-------------:| --------------------:|
-| LED Sequence  | Testing Cabling of LED and Sequence:  ``` int redLEDPin = 3;  int greenLEDPin = 4;  int blueLEDPin = 5;   void setup(){  pinMode(redLEDPin, OUTPUT);  pinMode(greenLEDPin, OUTPUT);  digitalWrite(redLEDPin, HIGH);   delay(200);   digitalWrite(greenLEDPin, HIGH);   delay(200);   digitalWrite(redLEDPin, LOW);   delay(200);   digitalWrite(greenLEDPin, LOW);  }  ``` | Works good
-| Servo | Testing Servo movements:  <code> Servo lockServo;  int lockPos = 15;  int unlockPos  = 75;  boolean locked = true; </code>
+### Testcase #1 
+<b>Description:</b> 
+Testing LED Sequence and Cabling on Startup
+
+``` c++ 
+int redLEDPin = 3;   
+int greenLEDPin = 4;  
+int blueLEDPin = 5;   
+void setup(){  
+    pinMode(redLEDPin, OUTPUT);  
+    pinMode(greenLEDPin, OUTPUT);  
+    digitalWrite(redLEDPin, HIGH);   
+    delay(200);   
+    digitalWrite(greenLEDPin, HIGH);   
+    delay(200);   
+    digitalWrite(redLEDPin, LOW);   
+    delay(200);   
+    digitalWrite(greenLEDPin, LOW);  
+    }
+``` 
+<b>Result: <span style="color:green">Successful</span></b><br>
+
+### Testcase #2 
+<b>Description:</b> 
+Testing if mfrc522 can read out UID of RFID card and prints it out to serial monitor. 
+
+``` c++ 
+void loop(){
+  if (mfrc522.PICC_IsNewCardPresent() && mfrc522.PICC_ReadCardSerial())<>
+  {
+    String temp = "";
+    for (byte i = 0; i < mfrc522.uid.size; i++) 
+    {
+      Serial.print(mfrc522.uid.uidByte[i] < 0x10 ? " 0" : " "); 
+      Serial.print(mfrc522.uid.uidByte[i], HEX);
+       } 
+  }
+  mfrc522.PICC_HaltA(); 
+  delay(1000);          
+}
+
+``` 
+<b>Result: <span style="color:green">Successful</span></b><br>
+
+### Testcase #3
+<b>Description:</b> 
+Testing if concat works: 
+
+``` c++ 
+void loop(){
+  if (mfrc522.PICC_IsNewCardPresent() && mfrc522.PICC_ReadCardSerial())<>
+  {
+
+    String temp = "";
+    for (byte i = 0; i < mfrc522.uid.size; i++) 
+    {
+      temp.concat(String(mfrc522.uid.uidByte[i] < 0x10 ? " 0" : " "));
+      temp.concat(String(mfrc522.uid.uidByte[i], HEX));
+       } 
+  }
+  Serial.println(temp);
+  mfrc522.PICC_HaltA(); 
+  delay(1000);          
+}
+``` 
+<b>Result: <span style="color:green">Successful</span></b><br>
+
+### Testcase #4
+<b>Description:</b> 
+Testing if checkAccess function works: 
+
+``` c++ 
+void checkAccess(String temp)
+{
+  boolean granted = false; 
+  for (int i = 0; i <= (accessGrantedSize - 1); i++) 
+  {
+    if (accessGranted[i] == temp.substring(1))
+    {
+      Serial.println("Access Granted: ");
+      granted = true;    
+      if (locked == true) 
+      {
+        lockServo.write(unlockPos); 
+        locked = false; 
+      }
+      else if (locked == false)
+      {
+        lockServo.write(lockPos); 
+        locked = true; 
+      }
+      // LED Sequence
+    }
+  }
+  if (granted == false) 
+  {
+    Serial.println("Access Denied");
+    // LED Sequence
+  }
+}
+``` 
+<b>Result: <span style="color:green">Successful</span></b><br>
+
 
 ## Project reflection
 The project was pretty fun and we have learned a lot of new things about the arduino and how microcontroller and microprocessor works. 

@@ -16,6 +16,7 @@ Feel free to use the code for your projects.
 
 - [Breadboard](https://www.amazon.com/-/de/dp/B073X7GZ1P/ref=sr_1_1?crid=2CL3V57MRGASD&keywords=arduino+breadboard&qid=1656406466&sprefix=arduino+bre%2Caps%2C157&sr=8-1) 
 Organigramm_RFID.drawio
+
 ## SMART objectives 
 - The Arduino can read UIDs of a RFID card
 - The RGB led glows green when access granted
@@ -43,7 +44,7 @@ Before we start the project, we have to know what Arduino actually is.
 Arduino is a open-source platform used for building electronics, mostly for educational purpose. Arduino consists of both a physical programmable circuit board and a piece of software, or IDE that runs on your computer, used to write and upload code to the arduino board. 
 
 ## Our Arduino RFID project 
-Our Arduino RFID Doorlock Project is based on [MICHAEL KLEMENTS RFID Doorlock Tutorial](https://www.the-diy-life.com/arduino-based-rfid-door-lock-make-your-own/). We changed it a little bit and created a slightly different code. 
+Our Arduino RFID Doorlock Project is based on [MICHAEL KLEMENTS RFID Doorlock Tutorial](https://www.the-diy-life.com/arduino-based-rfid-door-lock-make-your-own/). We changed it a little bit and created a slightly different code, using the mfrc522 library instead of his RFID library. 
 
 ### Circuit Tables
 
@@ -71,6 +72,8 @@ Our Arduino RFID Doorlock Project is based on [MICHAEL KLEMENTS RFID Doorlock Tu
 | GND| Black    | GND           |   Ground             |
 | Orange        | 2             | Digital Port 2       |  
 
+### Circuit scheme
+
 
 ## Lock mechanism
 The lock mechanism is based on this [sliding lock design](https://www.thingiverse.com/thing:1596180) by Sagittario which was scaled down to 65% of the original size.
@@ -84,6 +87,11 @@ If you don't have a 3D Printer, you can use any standard bolt type sliding lock.
 ![Organigram](/image/Organigramm_RFID.png "Organigram")
 
 ## Testcases 
+| Testcase      | Description   |   Result             |
+| ------------- |:-------------:| --------------------:|
+| LED Sequence  | Testing Cabling of LED and Sequence: <br> <code>int redLEDPin = 3; <br> int greenLEDPin = 4; <br> int blueLEDPin = 5; <br>  void setup(){ <br> pinMode(redLEDPin, OUTPUT); <br> pinMode(greenLEDPin, OUTPUT); <br> digitalWrite(redLEDPin, HIGH);  <br> delay(200);  <br> digitalWrite(greenLEDPin, HIGH);  <br> delay(200);  <br> digitalWrite(redLEDPin, LOW);  <br> delay(200);  <br> digitalWrite(greenLEDPin, LOW); <br> } <br> </code > | Works good
+| Servo | Testing Servo movements: <br> <code> Servo lockServo; <br> int lockPos = 15; <br> int unlockPos <br> = 75; <br> boolean locked = true; </code>
 
 ## Project reflection
-
+The project was pretty fun and we have learned a lot of new things about the arduino and how microcontroller and microprocessor works. 
+We had some Issues with the code and the cabling, but we managed to solve them together with our teacher. The most difficult one was the for-loop where the UID of the RFID-Card is printed. We could not manage to put the UID string into the variable temp, but at the end we managed to resolve this by using concat to join the string together in the variable. 

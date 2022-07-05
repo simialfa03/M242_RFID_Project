@@ -50,7 +50,7 @@ void loop()
     {
       Serial.print(mfrc522.uid.uidByte[i] < 0x10 ? " 0" : " ");         // prints out UID
       Serial.print(mfrc522.uid.uidByte[i], HEX);
-      temp.concat(String(mfrc522.uid.uidByte[i] < 0x10 ? " 0" : " ")); // puts UID in one String
+      temp.concat(String(mfrc522.uid.uidByte[i] < 0x10 ? " 0" : " ")); // joins the strings togheter in the temp variable
       temp.concat(String(mfrc522.uid.uidByte[i], HEX));
     }
     Serial.println();

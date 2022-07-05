@@ -1,12 +1,12 @@
 # Testcases
 ##  Testcase #1 
 
-<b>Tester:</b> simialfa03
-<b>Date:</b> 05.06.22
+<b>Tester:</b> simialfa03 <br>
+<b>Date:</b> 05.06.22 <br>
 <b>Description:</b> 
 Testing LED / Servo Sequence and Cabling on Startup
-
-<b>Expected result:</b>
+<br>
+<b>Expected result:</b> 
 LED & servo are going trough their startup sequence, when Arduino is plugged in.
 
 ``` c++ 
@@ -37,11 +37,11 @@ LED & servo are going trough their startup sequence, when Arduino is plugged in.
 
 ##  Testcase #2 
 
-<b>Tester:</b> simialfa03
-<b>Date:</b> 05.06.22
+<b>Tester:</b> simialfa03 <br>
+<b>Date:</b> 05.06.22 <br>
 <b>Description:</b> 
 Testing if mfrc522 can read out UID of RFID card and prints it out to serial monitor. 
-
+<br>
 <b>Expected result:</b>
 The UID of the RFID-Card should be printed in the serial-monitor.
 
@@ -66,12 +66,12 @@ The UID of the RFID-Card is be printed in the serial-monitor.
 
 ##  Testcase #3
 
-<b>Tester:</b> simialfa03
-<b>Date:</b> 05.06.22
+<b>Tester:</b> simialfa03 <br>
+<b>Date:</b> 05.06.22 <br>
 <b>Description:</b> 
 Testing if concat works
-
-<b>Expected result:</b>
+<br>
+<b>Expected result:</b> 
 Concat should join the string into the temp variable and should print it. 
 
 ``` c++ 
@@ -97,11 +97,11 @@ Concat joins the string into the temp variable and prints it.
 
 ##  Testcase #4
 
-<b>Tester:</b> simialfa03
-<b>Date:</b> 05.06.22
+<b>Tester:</b> simialfa03 <br>
+<b>Date:</b> 05.06.22 <br>
 <b>Description:</b> 
 Check if the for-loop goes trought every string in the array and checks for matches.
-
+<br>
 <b>Expected result:</b>
 The for-loop goes trough every string in the array and the if-loop checks for matches, if it matches it prints "Access granted".
 
@@ -126,11 +126,11 @@ The for-loop goes trough every string in the array and the if-loop checks for ma
 
 ##  Testcase #5
 
-<b>Tester:</b> simialfa03
-<b>Date:</b> 05.06.22
+<b>Tester:</b> simialfa03 <br>
+<b>Date:</b> 05.06.22 <br>
 <b>Description:</b> 
 If UID in the temp variable matches string with UID, it will print out the owner. 
-
+<br>
 <b>Expected result:</b>
 If the UID in the temp variable matches "7b f9 37 1b", it will print "Identified as: Simi".
 
@@ -150,11 +150,11 @@ The UID in the temp variable matches "7b f9 37 1b", it prints in the Serialmonit
 
 ##  Testcase #6
 
-<b>Tester:</b> simialfa03
-<b>Date:</b> 05.06.22
+<b>Tester:</b> simialfa03 <br>
+<b>Date:</b> 05.06.22 <br>
 <b>Description:</b> 
 Checking if Servo opens and green LED sequence starts, when access is granted. 
-
+<br>
 <b>Expected result:</b>
 If access is granted, the servo goes to his open state and LED starts green sequence. 
 
@@ -193,11 +193,11 @@ Access is granted, the servo goes to his open state and LED starts green sequenc
 
 ##  Testcase #7
 
-<b>Tester:</b> simialfa03
-<b>Date:</b> 05.06.22
+<b>Tester:</b> simialfa03 <br>
+<b>Date:</b> 05.06.22 <br>
 <b>Description:</b> 
 Checking if Servo closes and red LED sequence starts, when access is denied. 
-
+<br>
 <b>Expected result:</b>
 If access is denied, the servo goes to his open state and LED starts red sequence. 
 
@@ -235,11 +235,11 @@ Access denied, the servo closes and the LED start red sequence.
 
 ##  Testcase #8
 
-<b>Tester:</b> simialfa03
-<b>Date:</b> 05.06.22
+<b>Tester:</b> simialfa03 <br>
+<b>Date:</b> 05.06.22 <br>
 <b>Description:</b> 
 Checking if every access attempt is protocoled. 
-
+<br>
 <b>Expected result:</b>
 Any Access is protocoled in the serial monitor. 
 

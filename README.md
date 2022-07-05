@@ -10,7 +10,7 @@ Feel free to use the code for your projects.
 - [RGB LED](https://www.amazon.com/-/de/dp/B077XGF3YR/ref=sr_1_1?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=2CYUPMETPM8GS&keywords=RGB%2Bled%2Barduino&qid=1656406421&sprefix=rgb%2Bled%2Barduino%2Caps%2C131&sr=8-1&th=1)
 - Cables & Resistor
 
-<b>Optional:</r>
+<b>Optional:</b>
 
 - [3D Printer](https://www.amazon.com/-/de/dp/B094F65V3F/ref=sr_1_4?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=7Z6BSY639093&keywords=3d+printers+ender+3&qid=1656406451&sprefix=3d+printers+ender+%2Caps%2C196&sr=8-4)
 

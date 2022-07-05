@@ -89,7 +89,7 @@ If you don't have a 3D Printer, you can use any standard bolt type sliding lock.
 ## Testcases 
 | Testcase      | Description   |   Result             |
 | ------------- |:-------------:| --------------------:|
-| LED Sequence  | Testing Cabling of LED and Sequence: <br> <code>int redLEDPin = 3; <br> int greenLEDPin = 4; <br> int blueLEDPin = 5; <br>  void setup(){ <br> pinMode(redLEDPin, OUTPUT); <br> pinMode(greenLEDPin, OUTPUT); <br> digitalWrite(redLEDPin, HIGH);  <br> delay(200);  <br> digitalWrite(greenLEDPin, HIGH);  <br> delay(200);  <br> digitalWrite(redLEDPin, LOW);  <br> delay(200);  <br> digitalWrite(greenLEDPin, LOW); <br> } <br> </code > | Works good
+| LED Sequence  | Testing Cabling of LED and Sequence: <br> ``` int redLEDPin = 3; <br> int greenLEDPin = 4; <br> int blueLEDPin = 5; <br>  void setup(){ <br> pinMode(redLEDPin, OUTPUT); <br> pinMode(greenLEDPin, OUTPUT); <br> digitalWrite(redLEDPin, HIGH);  <br> delay(200);  <br> digitalWrite(greenLEDPin, HIGH);  <br> delay(200);  <br> digitalWrite(redLEDPin, LOW);  <br> delay(200);  <br> digitalWrite(greenLEDPin, LOW); <br> } <br> ``` | Works good
 | Servo | Testing Servo movements: <br> <code> Servo lockServo; <br> int lockPos = 15; <br> int unlockPos <br> = 75; <br> boolean locked = true; </code>
 
 ## Project reflection

@@ -1,5 +1,6 @@
 # Testcases
-### Testcase #1 
+##  Testcase #1 
+
 <b>Tester:</b> simialfa03
 <b>Date:</b> 05.06.22
 <b>Description:</b> 
@@ -34,7 +35,8 @@ void setup(){
 LED & servo are going trough their startup sequence, when Arduino is plugged in.
 
 
-### Testcase #2 
+##  Testcase #2 
+
 <b>Tester:</b> simialfa03
 <b>Date:</b> 05.06.22
 <b>Description:</b> 
@@ -62,7 +64,8 @@ void loop(){
 <b>Result: <span style="color:green">Successful</span></b><br>
 The UID of the RFID-Card is be printed in the serial-monitor.
 
-### Testcase #3
+##  Testcase #3
+
 <b>Tester:</b> simialfa03
 <b>Date:</b> 05.06.22
 <b>Description:</b> 
@@ -92,7 +95,8 @@ void loop(){
 Concat joins the string into the temp variable and prints it. 
 
 
-### Testcase #4
+##  Testcase #4
+
 <b>Tester:</b> simialfa03
 <b>Date:</b> 05.06.22
 <b>Description:</b> 
@@ -120,7 +124,8 @@ void checkAccess(String temp) {
 <b>Result: <span style="color:green">Successful</span></b><br>
 The for-loop goes trough every string in the array and the if-loop checks for matches, when it matches it prints "Access granted".
 
-### Testcase #5
+##  Testcase #5
+
 <b>Tester:</b> simialfa03
 <b>Date:</b> 05.06.22
 <b>Description:</b> 
@@ -143,7 +148,8 @@ void checkAccess(String temp) {
 The UID in the temp variable matches "7b f9 37 1b", it prints in the Serialmonitor "Identified as: Simi".
 
 
-### Testcase #6
+##  Testcase #6
+
 <b>Tester:</b> simialfa03
 <b>Date:</b> 05.06.22
 <b>Description:</b> 
@@ -185,7 +191,8 @@ int blueLEDPin = 5;
 <b>Result: <span style="color:green">Successful</span></b><br>
 Access is granted, the servo goes to his open state and LED starts green sequence. 
 
-### Testcase #7
+##  Testcase #7
+
 <b>Tester:</b> simialfa03
 <b>Date:</b> 05.06.22
 <b>Description:</b> 
@@ -226,7 +233,8 @@ int blueLEDPin = 5;
 <b>Result: <span style="color:green">Successful</span></b><br>
 Access denied, the servo closes and the LED start red sequence. 
 
-### Testcase #8
+##  Testcase #8
+
 <b>Tester:</b> simialfa03
 <b>Date:</b> 05.06.22
 <b>Description:</b> 

@@ -89,8 +89,8 @@ If you don't have a 3D Printer, you can use any standard bolt type sliding lock.
 ## Testcases 
 | Testcase      | Description   |   Result             |
 | ------------- |:-------------:| --------------------:|
-| LED Sequence  | Testing Cabling of LED and Sequence: <br> ``` int redLEDPin = 3; <br> int greenLEDPin = 4; <br> int blueLEDPin = 5; <br>  void setup(){ <br> pinMode(redLEDPin, OUTPUT); <br> pinMode(greenLEDPin, OUTPUT); <br> digitalWrite(redLEDPin, HIGH);  <br> delay(200);  <br> digitalWrite(greenLEDPin, HIGH);  <br> delay(200);  <br> digitalWrite(redLEDPin, LOW);  <br> delay(200);  <br> digitalWrite(greenLEDPin, LOW); <br> } <br> ``` | Works good
-| Servo | Testing Servo movements: <br> <code> Servo lockServo; <br> int lockPos = 15; <br> int unlockPos <br> = 75; <br> boolean locked = true; </code>
+| LED Sequence  | Testing Cabling of LED and Sequence:  ``` int redLEDPin = 3;  int greenLEDPin = 4;  int blueLEDPin = 5;   void setup(){  pinMode(redLEDPin, OUTPUT);  pinMode(greenLEDPin, OUTPUT);  digitalWrite(redLEDPin, HIGH);   delay(200);   digitalWrite(greenLEDPin, HIGH);   delay(200);   digitalWrite(redLEDPin, LOW);   delay(200);   digitalWrite(greenLEDPin, LOW);  }  ``` | Works good
+| Servo | Testing Servo movements:  <code> Servo lockServo;  int lockPos = 15;  int unlockPos  = 75;  boolean locked = true; </code>
 
 ## Project reflection
 The project was pretty fun and we have learned a lot of new things about the arduino and how microcontroller and microprocessor works. 

@@ -1,6 +1,6 @@
 # About
-This Repository contains Information of a Arduino MKR1010 (RFID Door Lock) school project. 
-The Arduino is able to scan RFID cards in order to unlock a 3D printed doorlock. 
+This Repository contains Information of an Arduino MKR1010 (RFID Door Lock) school project. 
+The Arduino is able to scan RFID cards in order to unlock a 3D printed door lock. 
 Feel free to use the code for your projects. 
 
 # Requirements
@@ -19,9 +19,9 @@ Organigramm_RFID.drawio
 
 # SMART objectives 
 1. The RGD led and the servo are going through startup sequence on startup
-2. The Arduino can read UIDs of a RFID card
+2. The Arduino can read UIDs of an RFID card
 3. We can put the RFID Card UID in a string to for the check function
-4. We can put the RFID Card UIDs in a array, in order to store them
+4. We can put the RFID Card UIDs in an array, in order to store them
 5. We can assign the UIDs to a person
 6. The servo opens door if access granted and LED blinks green
 7. The servo closes door if access not granted  and LED blinks red
@@ -33,19 +33,19 @@ Organigramm_RFID.drawio
 
 
 # RFID
-RFID id stands for "radio-frequency identification” and refers to a technology where digital data encoded in RFID tags or smart labels are captured by a reader via radio waves. An advantages of RFID is that the RFID tag data can be read outside the line-of-sight, whereas barcodes must be aligned with an optical scanner. 
+RFID ID stands for "radio-frequency identification” and refers to a technology where digital data encoded in RFID tags or smart labels are captured by a reader via radio waves. An advantage of RFID is that the RFID tag data can be read outside the line-of-sight, whereas barcodes must be aligned with an optical scanner. 
 
-A RFID systems consist of three comoponents: an RFID tag or smart label (badge), an RFID Reader and an antenna.  RFID tags contain an integrated circuit and an antenna, which are used to transmit data to the RFID reader. The reader then converts the radio waves to a more usable form of data (UIDs). Information collected from the tags is then transferred through a communications interface to a host computer system (in Our Example the Arduino), where the data can be stored in a database and analyzed at a later time.
+An RFID systems consist of three components: an RFID tag or smart label (badge), an RFID Reader and an antenna.  RFID tags contain an integrated circuit and an antenna, which are used to transmit data to the RFID reader. The reader then converts the radio waves to a more usable form of data (UIDs). Information collected from the tags is then transferred through a communications interface to a host computer system (in Our Example the Arduino), where the data can be stored in a database and analyzed at a later time.
 
 # Arduino 
 Before we start the project, we have to know what Arduino actually is. 
-Arduino is a open-source platform used for building electronics, mostly for educational purpose. Arduino consists of both a physical programmable circuit board and a piece of software, or IDE that runs on your computer, used to write and upload code to the arduino board. 
+Arduino is an open-source platform used for building electronics, mostly for educational purpose. Arduino consists of both a physical programmable circuit board and a piece of software, or IDE that runs on your computer, used to write and upload code to the Arduino board. 
 
 # Our Arduino RFID project 
-Our Arduino RFID Doorlock Project is based on [MICHAEL KLEMENTS RFID Doorlock Tutorial](https://www.the-diy-life.com/arduino-based-rfid-door-lock-make-your-own/). We changed it a little bit and created a slightly different code, using the mfrc522 library instead of his RFID library. You can downloand the code from here: [RFID-Code](/code/RFID/RFID.ino)
+Our Arduino RFID Doorlock Project is based on [MICHAEL KLEMENTS RFID Doorlock Tutorial](https://www.the-diy-life.com/arduino-based-rfid-door-lock-make-your-own/). We changed it a little bit and created a slightly different code, using the mfrc522 library instead of his RFID library. You can download the code from here: [RFID-Code](/code/RFID/RFID.ino)
 
 ## Circuit Tables
-The pins on the RC-522 are sending SPI signals to our Arduino, this is the reason why we have to inlcude the SPI.h library in our code. 
+The pins on the RC-522 are sending SPI signals to our Arduino, this is the reason why we have to include the SPI.h library in our code. 
 
 | RFID RC-522  Signal | RFID RC-522  PIN |  Arduino MKR1010 PIN |  Description |
 | ------------- | ------------- |:-----------:| ----------------------:|
@@ -85,13 +85,8 @@ If you don't have a 3D Printer, you can use any standard bolt type sliding lock.
 ![Organigram](/image/Organigramm_RFID.png "Organigram")
 
 ## Testcases 
-We have made some Testcases based on our smart objectives in order to test every component of our project. <br>
-You can find the testcases here: [Testcases](/testcases/readme.md)
+We have made some Test-cases based on our smart objectives in order to test every component of our project. <br>
+You can find the Test-cases here: [Testcases](/testcases/readme.md)
 
 # Project reflection
-The project was pretty fun and we have learned a lot of new things about the arduino and how microcontroller and microprocessor works.
-We had some Issues with the code escpecially with the for loop that creates our UID for the RFID card. The problem was that we couldn't manage to put the UID into a variable in Order to check the string then with the checkAcess function, but we managed to solve this problem with concat which joins the strings together in our variable.
-Another Problem we had was designing our circuit scheme, because there are not many websites or tools which support the MKR1010. Therefore we had to draw it by ourselfe in draw.io which took us some hours to design everything. 
-At the end we managed to create a cool project with our arduino and we are really proud that everything works fine. 
-At the beginning we where pretty desperate because we couldn't even manage to get the UID from the RFID Card and we didn't know what we are doing wrong, so we tried different codes, different cabling and different ways in the hope that we could get an UID, but fortunately our teacher helped us with one of his codes to get the UID from the scanner, so that we could adjust our script in order to get the UID. 
-We think we have made a great effort to realize this project and we are happy that at the end everything worked great. 
+The project was pretty fun and we have learned a lot of new things about the Arduino and how microcontroller and microprocessor works. We had some Issues with the code especially with the for loop that creates our UID for the RFID card. The problem was that we couldn't manage to put the UID into a variable in Order to check the string then with the checkAcess function, but we managed to solve this problem with concat which joins the strings together in our variable. Another Problem we had was designing our circuit scheme, because there are not many websites or tools which support the MKR1010. Therefore, we had to draw it by ourself in draw.io which took us some hours to design everything. At the end we managed to create a cool project with our Arduino and we are really proud that everything works fine. At the beginning we were pretty desperate because we couldn't even manage to get the UID from the RFID Card and we didn't know what we are doing wrong, so we tried different codes, different cabling and different ways in the hope that we could get an UID, but fortunately our teacher helped us with one of his codes to get the UID from the scanner, so that we could adjust our script in order to get the UID. We think we have made a great effort to realize this project and we are happy that at the end everything worked great.

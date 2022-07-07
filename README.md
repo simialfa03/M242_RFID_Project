@@ -3,7 +3,7 @@ This Repository contains Information of a Arduino MKR1010 (RFID Door Lock) schoo
 The Arduino is able to scan RFID cards in order to unlock a 3D printed doorlock. 
 Feel free to use the code for your projects. 
 
-## Requirements
+# Requirements
 - [Arduino arduino mkr 1010](https://www.amazon.com/-/de/dp/B07FYFF5YZ/ref=sr_1_1?keywords=arduino+mkr+wifi+1010&qid=1656406329&sprefix=arduino+mkr%2Caps%2C153&sr=8-1)
 - [RFID Reader & Badge](https://www.amazon.com/-/de/dp/B01CSTW0IA/ref=sr_1_2?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=1YQEUCWFZ2IZD&keywords=arduino+rfid&qid=1656406347&sprefix=arduino+rfi%2Caps%2C146&sr=8-2)
 - [Servo](https://www.amazon.com/gp/product/B07MLR1498/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B07MLR1498&linkCode=as2&tag=mklements-20&linkId=63a97680f3787d087be345410cd59158)
@@ -17,7 +17,7 @@ Feel free to use the code for your projects.
 - [Breadboard](https://www.amazon.com/-/de/dp/B073X7GZ1P/ref=sr_1_1?crid=2CL3V57MRGASD&keywords=arduino+breadboard&qid=1656406466&sprefix=arduino+bre%2Caps%2C157&sr=8-1) 
 Organigramm_RFID.drawio
 
-## SMART objectives 
+# SMART objectives 
 1. The RGD led and the servo are going through startup sequence on startup
 2. The Arduino can read UIDs of a RFID card
 3. We can put the RFID Card UID in a string to for the check function
@@ -41,10 +41,10 @@ A RFID systems consist of three comoponents: an RFID tag or smart label (badge),
 Before we start the project, we have to know what Arduino actually is. 
 Arduino is a open-source platform used for building electronics, mostly for educational purpose. Arduino consists of both a physical programmable circuit board and a piece of software, or IDE that runs on your computer, used to write and upload code to the arduino board. 
 
-## Our Arduino RFID project 
+# Our Arduino RFID project 
 Our Arduino RFID Doorlock Project is based on [MICHAEL KLEMENTS RFID Doorlock Tutorial](https://www.the-diy-life.com/arduino-based-rfid-door-lock-make-your-own/). We changed it a little bit and created a slightly different code, using the mfrc522 library instead of his RFID library. You can downloand the code from here: [RFID-Code](/code/RFID/RFID.ino)
 
-### Circuit Tables
+## Circuit Tables
 The pins on the RC-522 are sending SPI signals to our Arduino, this is the reason why we have to inlcude the SPI.h library in our code. 
 
 | RFID RC-522  Signal | RFID RC-522  PIN |  Arduino MKR1010 PIN |  Description |
@@ -70,7 +70,7 @@ The pins on the RC-522 are sending SPI signals to our Arduino, this is the reaso
 | GND| Black    | GND           |   Ground             |
 | Orange        | 2             | Digital Port 2       |  
 
-### Circuit scheme
+## Circuit scheme
 
 
 ## Lock mechanism
@@ -88,7 +88,7 @@ If you don't have a 3D Printer, you can use any standard bolt type sliding lock.
 We have made some Testcases based on our smart objectives in order to test every component of our project. <br>
 You can find the testcases here: [Testcases](/testcases/readme.md)
 
-## Project reflection
+# Project reflection
 The project was pretty fun and we have learned a lot of new things about the arduino and how microcontroller and microprocessor works.
 We had some Issues with the code escpecially with the for loop that creates our UID for the RFID card. The problem was that we couldn't manage to put the UID into a variable in Order to check the string then with the checkAcess function, but we managed to solve this problem with concat which joins the strings together in our variable.
 Another Problem we had was designing our circuit scheme, because there are not many websites or tools which support the MKR1010. Therefore we had to draw it by ourselfe in draw.io which took us some hours to design everything. 

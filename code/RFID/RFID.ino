@@ -10,7 +10,7 @@ MFRC522 mfrc522(SS_PIN, RST_PIN); // Creates MFRC522 Instance
 
 unsigned char status;
 
-String accessGranted[2] = {"7b f9 37 1b", "04 47 06 fa 9f 59 80"}; // RFID UID numbers to grant access to
+String accessGranted[2] = {"7b f9 37 1b", "05 80 e8 97 a1 f0 00"}; // RFID UID numbers to grant access to
 int accessGrantedSize = 2;                                         // The number of UID numbers
 
 Servo lockServo;    // Servo for locking mechanism

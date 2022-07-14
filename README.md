@@ -18,13 +18,13 @@ Feel free to use the code for your projects.
 Organigramm_RFID.drawio
 
 # SMART objectives 
-1. The RGD led and the servo are going through startup sequence on startup
+1. The RGB led and the servo are going through startup sequence on startup
 2. The Arduino can read UIDs of an RFID card
 3. We can put the RFID Card UID in a string in order to give it to the CheckAcess function
 4. We can put the RFID Card UIDs in an array, in order to store them
 5. We can assign the UIDs to a person
-6. The servo opens the door if access granted and LED blinks green
-7. The servo closes the door if access not granted  and LED blinks red
+6. If access granted, the servo opens the door and the LED blinks green
+7. If access not granted, the servo closes the door and the LED blinks red
 8. Any access attempt is protocoled in the serial monitor
 
 <b> Non Functional objectives: </b>
@@ -55,7 +55,7 @@ The pins on the RC-522 are sending SPI signals to our Arduino, this is the reaso
 | SPI MISO      | MISO          | 10          |    Digital Port 10     |
 | SPI MOSI      | MOSI          | 8           |    Digital Port 8      |
 | SPI SCK       | SCK           | 9           |    Digital Port 9      |
-| SPI SCA       | SCA           | 11          |    Digital Port 11     |
+| SPI SDA       | SDA           | 11          |    Digital Port 11     |
 
 | RGB LED       |  Arduino MKR1010 PIN |  Description |
 | ------------- |:-------------:| -----:|
